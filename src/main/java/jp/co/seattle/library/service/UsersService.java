@@ -3,6 +3,7 @@ package jp.co.seattle.library.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 
@@ -50,7 +51,7 @@ public class UsersService {
             UserInfo selectedUserInfo = jdbcTemplate.queryForObject(sql, new UserCountRowMapper());
         return selectedUserInfo;
 
-        } catch (Exception e) {
+    } catch (EmptyResultDataAccessException e) {
             return null;
 
         }
