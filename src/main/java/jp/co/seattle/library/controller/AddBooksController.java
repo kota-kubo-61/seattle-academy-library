@@ -103,7 +103,7 @@ public class AddBooksController {
 
         } catch (ParseException p) {
 
-            model.addAttribute("errorLetter2", "半角数字で入力してください。");
+            model.addAttribute("errorLetter2", "出版日は半角数字のYYYYMMDD形式で入力してください。");
 
             return "addBook";
         }
