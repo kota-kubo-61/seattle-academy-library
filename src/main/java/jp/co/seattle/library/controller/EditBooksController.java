@@ -55,7 +55,8 @@ public class EditBooksController {
      */
     @Transactional
     @RequestMapping(value = "/reinsertBook", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
-    public String insertBook(Locale locale,
+    public String reinsertBook(Locale locale,
+            @RequestParam("bookId") int bookId,
             @RequestParam("title") String title,
             @RequestParam("description") String description,
             @RequestParam("author") String author,
@@ -68,6 +69,7 @@ public class EditBooksController {
 
         // パラメータで受け取った書籍情報をDtoに格納する。
         BookDetailsInfo bookInfo = new BookDetailsInfo();
+        bookInfo.setBookId(bookId);
         bookInfo.setTitle(title);
         bookInfo.setDescription(description);
         bookInfo.setAuthor(author);
@@ -122,7 +124,7 @@ public class EditBooksController {
 
         // 書籍情報を再度、登録し直す
 
-        booksService.registBook(bookInfo);
+        booksService.editBook(bookInfo);
 
         model.addAttribute("resultMessage", "登録完了");
 
