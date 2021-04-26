@@ -97,13 +97,15 @@ public class BooksService {
      */
     public void editBook(BookDetailsInfo bookInfo) {
 
-        String sql = "INSERT INTO books (title,description,author,publisher,publish_date,thumbnail_name,thumbnail_url,isbn,reg_date,upd_date) VALUES ('"
-                + bookInfo.getTitle() + "','" + bookInfo.getDescription() + "','" + bookInfo.getAuthor() + "','"
-                + bookInfo.getPublisher() + "','"
-                + bookInfo.getPublishDate() + "','" + bookInfo.getThumbnailName() + "','"
-                + bookInfo.getThumbnailUrl() + "','" + bookInfo.getIsbn() + "',"
-                + "sysdate(),"
-                + "sysdate())";
+        String sql = "update books set title =" + bookInfo.getTitle() +
+                ",description = " + bookInfo.getDescription() +
+                ",author = " + bookInfo.getAuthor() +
+                ",publisher = " + bookInfo.getPublisher() +
+                ",publish_date = " + bookInfo.getPublishDate() +
+                ",thumbnail_name = " + bookInfo.getThumbnailName() +
+                ",thumbnail_url = " + bookInfo.getThumbnailUrl() +
+                ",isbn = " + bookInfo.getIsbn() +
+                ",upd_date = sysdate()";
 
         jdbcTemplate.update(sql);
     }

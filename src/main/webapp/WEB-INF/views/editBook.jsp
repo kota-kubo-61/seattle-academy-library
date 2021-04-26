@@ -125,7 +125,7 @@
                             <input type="text" name="description">
                         </c:if>
                     </div>
-                    <input type="hidden" id="bookId" name="bookId" value="${bookInfo.bookId}">
+                    <input type="hidden" id="bookId" name="bookId" value="${bookDetailsInfo.bookId}">
                 </div>
             </div>
             <div class="addBookBtn_box">
