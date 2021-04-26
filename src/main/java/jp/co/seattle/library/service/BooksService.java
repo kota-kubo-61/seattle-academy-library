@@ -90,6 +90,25 @@ public class BooksService {
     }
 
     /**
+     * 書籍を編集する
+     *
+     * @param bookInfo 書籍情報
+     * @return 
+     */
+    public void editBook(BookDetailsInfo bookInfo) {
+
+        String sql = "INSERT INTO books (title,description,author,publisher,publish_date,thumbnail_name,thumbnail_url,isbn,reg_date,upd_date) VALUES ('"
+                + bookInfo.getTitle() + "','" + bookInfo.getDescription() + "','" + bookInfo.getAuthor() + "','"
+                + bookInfo.getPublisher() + "','"
+                + bookInfo.getPublishDate() + "','" + bookInfo.getThumbnailName() + "','"
+                + bookInfo.getThumbnailUrl() + "','" + bookInfo.getIsbn() + "',"
+                + "sysdate(),"
+                + "sysdate())";
+
+        jdbcTemplate.update(sql);
+    }
+
+    /**
      * 書籍を削除する
      *
      * @param bookId 書籍ID
