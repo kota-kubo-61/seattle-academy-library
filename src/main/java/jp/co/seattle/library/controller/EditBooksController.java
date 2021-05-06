@@ -43,6 +43,7 @@ public class EditBooksController {
     /**
      * 書籍情報を編集する
      * @param locale ロケール情報
+     * @param bookid ID
      * @param title 書籍名
      * @param description 書籍説明
      * @param author 著者名
